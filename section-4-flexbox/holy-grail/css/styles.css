@@ -1,0 +1,43 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header, footer {
+  background-color: aqua;
+  flex-basis: 100px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+main {
+  display: flex;
+  min-height: 800px;
+}
+
+article {
+  flex: 2 1 60%;
+}
+
+nav {
+  order: -1;
+  background-color: gray;
+  flex: 1 1 20%;
+}
+
+aside {
+  background-color: skyblue;
+  flex: 1 1 20%;
+}
+
+@media screen and (max-width: 640px) {
+  main {
+    flex-direction: column;
+  }
+  nav {
+    order: 0;
+  }
+}
