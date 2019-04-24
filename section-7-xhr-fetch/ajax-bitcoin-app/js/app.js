@@ -8,7 +8,7 @@ btn.addEventListener("click", function() {
     if (XHR.readyState == 4 && XHR.status == 200) {
       var data = JSON.parse(XHR.responseText);
       var currentRate = data.bpi.USD.rate;
-      price.append(currentRate + " USD");
+      price.textContent = currentRate + " USD";
     }
   }
 
