@@ -3,6 +3,7 @@ var url = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes';
 var quote = document.querySelector("#quote");
 var xhrBtn = document.querySelector("#xhr");
 var fetchbtn = document.querySelector("#fetch");
+var axiosBtn = document.querySelector("#axios");
 
 //xhr response
 xhrBtn.addEventListener("click", function() {
@@ -46,4 +47,22 @@ $("#jquery").click(function() {
   .fail(function() {
     console.log("Error");
   })
+});
+
+//axios response
+axiosBtn.addEventListener("click", function() {
+  axios.get(url)
+  .then(function(res) {
+    quote.innerText = res.data[0];
+  })
+  .catch(function(err) {
+    if (err.response) {
+      console.log("Problem With Response ", err.response.status);
+    } else if (err.request) {
+      console.log("Problem With Request!");
+    } else {
+      console.log('Error', err.message);
+    }
+  })
 })
+
