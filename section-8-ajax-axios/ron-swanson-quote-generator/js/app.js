@@ -35,18 +35,18 @@ fetchbtn.addEventListener("click", function() {
   })
   .catch(function(err) {
     console.log(err);
-  })
+  });
 });
 
 //jquery response
 $("#jquery").click(function() {
   $.getJSON(url)
   .done(function(data) {
-    quote.innerText = data[0];
+    $("#quote").text(data[0]);
   })
   .fail(function() {
     console.log("Error");
-  })
+  });
 });
 
 //axios response
