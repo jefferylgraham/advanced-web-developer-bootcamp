@@ -36,3 +36,14 @@ fetchbtn.addEventListener("click", function() {
     console.log(err);
   })
 });
+
+//jquery response
+$("#jquery").click(function() {
+  $.getJSON(url)
+  .done(function(data) {
+    quote.innerText = data[0];
+  })
+  .fail(function() {
+    console.log("Error");
+  })
+})
