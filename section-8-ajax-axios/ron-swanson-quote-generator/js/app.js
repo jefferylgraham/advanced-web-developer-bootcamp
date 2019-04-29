@@ -2,8 +2,9 @@ var url = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes';
 
 var quote = document.querySelector("#quote");
 var xhrBtn = document.querySelector("#xhr");
+var fetchbtn = document.querySelector("#fetch");
 
-
+//xhr response
 xhrBtn.addEventListener("click", function() {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
@@ -14,4 +15,24 @@ xhrBtn.addEventListener("click", function() {
   };
   xhr.open("GET", url);
   xhr.send();
+});
+
+//fetch response
+fetchbtn.addEventListener("click", function() {
+  fetch(url)
+  .then(function(res) {
+    if (!res.ok) {
+      throw Error(res.status);
+    }
+    return res;
+  })
+  .then(function(res) {
+    return res.json();
+  })
+  .then(function(data) {
+    quote.innerText = data[0];
+  })
+  .catch(function(err) {
+    console.log(err);
+  })
 });
